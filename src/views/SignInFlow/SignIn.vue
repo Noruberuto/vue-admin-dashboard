@@ -11,18 +11,36 @@
       <input type="password" placeholder="Password" />
       <button>Sign in</button>
       <router-link to="/recover">Forgot your password?</router-link>
+      <button @click="toggleDarkMode">Toggle</button>
     </div>
   </div>
 </template>
 
-      
 <script>
 export default {
-  name: "SignIn"
+  name: "SignIn",
+  data() {
+    return {
+      isDarkMode: true
+    };
+  },
+
+  methods: {
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+.light-background {
+  background-color: $light-gray;
+}
+.dark-background {
+  background-color: $dark-blue;
+}
+
 .container {
   display: flex;
   justify-content: center;
