@@ -1,16 +1,25 @@
 <template>
-  <div class="container">
+  <div
+    class="container"
+    :class="{'light-background' : !isDarkMode, 'dark-background' : isDarkMode}"
+  >
     <div class="request">
       Don't have a Design+code HQ account?
       <router-link to="/request">Request an account</router-link>
     </div>
+
     <div class="login">
       <img src="@/assets/DCHQ.svg" />
-      <h4>Sign into Desig+Code HQ</h4>
+
+      <h4 :class="{'light-text' : isDarkMode, 'dark-text' : !isDarkMode}">Sign into Desig+Code HQ</h4>
+
       <input type="email" placeholder="Email" />
       <input type="password" placeholder="Password" />
+
       <button>Sign in</button>
+
       <router-link to="/recover">Forgot your password?</router-link>
+
       <button @click="toggleDarkMode">Toggle</button>
     </div>
   </div>
@@ -28,6 +37,7 @@ export default {
   methods: {
     toggleDarkMode() {
       this.isDarkMode = !this.isDarkMode;
+      document.body.style.background = this.isDarkMode ? "#212c4f" : "#f0f3f5";
     }
   }
 };
@@ -41,6 +51,13 @@ export default {
   background-color: $dark-blue;
 }
 
+.light-text {
+  color: $white;
+}
+.dark-text {
+  color: $black;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -48,9 +65,11 @@ export default {
 
   min-height: 100vh;
 }
+
 .login {
   width: 400px;
 }
+
 .request {
   position: absolute;
   top: 40px;
@@ -60,6 +79,7 @@ export default {
     color: white;
   }
 }
+
 h4 {
   margin: 0px;
   font-size: 24px;
@@ -70,6 +90,7 @@ h4 {
   /* white */
   color: #ffffff;
 }
+
 input {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -89,6 +110,7 @@ input {
     color: rgba(255, 255, 255, 0.3);
   }
 }
+
 button {
   background: #56ccf2;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
@@ -105,10 +127,7 @@ button {
 a {
   font-size: 16px;
   line-height: 25px;
-  /* identical to box height */
-
   text-align: center;
-
   color: rgba(255, 255, 255, 0.3);
   text-decoration: none;
 }
