@@ -43,21 +43,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .light-background {
   background-color: $light-gray;
 }
 .dark-background {
   background-color: $dark-blue;
 }
-
 .light-text {
   color: $white;
 }
 .dark-text {
   color: $black;
 }
-
 .container {
   display: flex;
   justify-content: center;
@@ -65,11 +63,9 @@ export default {
 
   min-height: 100vh;
 }
-
 .login {
   width: 400px;
 }
-
 .request {
   position: absolute;
   top: 40px;
